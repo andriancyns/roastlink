@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ============================================================
+   RoastLink design tokens
+   Light editorial. Green = primary brand, blue = data/tech.
+   ============================================================ */
+@theme {
+  /* Surfaces */
+  --color-bg: #f7f5ef; /* warm bone */
+  --color-bg-alt: #ffffff; /* white panels */
+  --color-surface: #efede4; /* tinted panel */
+  --color-line: #d8d5cb; /* hairline */
+
+  /* Ink */
+  --color-ink: #1a2421; /* near-black green */
+  --color-muted: #6b7568; /* muted green-grey */
+
+  /* Brand: forest green */
+  --color-green: #1f5f3f;
+  --color-green-2: #3a7a52;
+  --color-green-soft: #e7efe8;
+
+  /* Tech accent: electric blue (data only) */
+  --color-blue: #1e5eff;
+  --color-blue-2: #0ea5e9;
+  --color-blue-soft: #e6efff;
+
+  /* Fonts */
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Selection uses the brand green */
+::selection {
+  background-color: var(--color-green);
+  color: #fff;
+}
+
+/* Tinted scrollbar (subtle, brand-aware) */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 999px;
+    border: 2px solid var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted);
+  }
+}
+
+/* ============================================================
+   Motion safety: respect reduced motion globally
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Utility helpers
+   ============================================================ */
+/* Hairline divider that respects the token line color */
+.hairline {
+  border-color: var(--color-line);
+}
+
+/* Storytelling headline style */
+.headline-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+/* Mono data label */
+.data-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
