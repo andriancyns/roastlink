@@ -75,6 +75,10 @@ RoastLink/
 └── package.json
 ```
 
+## Roadmap
+
+This repo is currently a front-end landing page with mock data. The plan to turn it into a real, shippable platform — backend, auth, real QR codes, on-chain anchoring, pilot phases — lives in [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
 ## Mock Data Disclaimer
 
 All content in `lib/data.ts` is **illustrative sample data, not real on-chain records**. Transaction hashes, block numbers, prices, dates, and names are invented for demo purposes. There is **no backend, wallet integration, or actual blockchain** — this is a front-end landing page only. Editing `lib/data.ts` is the single place to change every number, stage, and label on the page.
